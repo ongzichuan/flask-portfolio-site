@@ -24,558 +24,131 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--navy);
-      color: var(--slate);
-      font-family: var(--font-sans);
-      font-size: 18px;
-      line-height: 1.3;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
+    body { background: var(--navy); color: var(--slate); font-family: var(--font-sans); font-size: 18px; line-height: 1.3; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { color: var(--green); text-decoration: none; transition: var(--transition); }
     ul { list-style: none; }
     ::selection { background: var(--lightest-navy); }
-
     ::-webkit-scrollbar { width: 12px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--lightest-navy); border-radius: 10px; }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 150px;
-      display: flex;
-      gap: 4rem;
-      min-height: 100vh;
-    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 150px; display: flex; gap: 4rem; min-height: 100vh; }
+    .sidebar { width: 50%; max-width: 480px; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 96px 0; flex-shrink: 0; }
+    .main-content { width: 50%; padding: 96px 0; }
 
-    .sidebar {
-      width: 50%;
-      max-width: 480px;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 96px 0;
-      flex-shrink: 0;
-    }
-
-    .main-content {
-      width: 50%;
-      padding: 96px 0;
-    }
-
-    .header-intro h1 {
-      font-size: clamp(36px, 5vw, 72px);
-      font-weight: 600;
-      color: var(--lightest-slate);
-      line-height: 1.1;
-      letter-spacing: -0.5px;
-    }
-
-    .header-intro h2 {
-      font-size: clamp(14px, 2.5vw, 22px);
-      font-weight: 400;
-      color: var(--light-slate);
-      margin-top: 12px;
-    }
-
-    .header-intro p {
-      margin-top: 20px;
-      max-width: 340px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
+    .header-intro h1 { font-size: clamp(36px, 5vw, 72px); font-weight: 600; color: var(--lightest-slate); line-height: 1.1; letter-spacing: -0.5px; }
+    .header-intro h2 { font-size: clamp(14px, 2.5vw, 22px); font-weight: 400; color: var(--light-slate); margin-top: 12px; }
+    .header-intro p { margin-top: 20px; max-width: 340px; font-size: 16px; line-height: 1.6; }
 
     .nav { margin-top: 56px; }
     .nav ul { display: flex; flex-direction: column; gap: 16px; }
-
-    .nav a {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      color: var(--slate);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: var(--transition);
-    }
-
-    .nav a::before {
-      content: '';
-      display: block;
-      height: 1px;
-      width: 32px;
-      background: var(--slate);
-      transition: var(--transition);
-    }
-
-    .nav a:hover,
-    .nav a.active {
-      color: var(--lightest-slate);
-    }
-
-    .nav a:hover::before,
-    .nav a.active::before {
-      width: 64px;
-      background: var(--lightest-slate);
-    }
+    .nav a { display: flex; align-items: center; gap: 16px; color: var(--slate); font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: var(--transition); }
+    .nav a::before { content: ''; display: block; height: 1px; width: 32px; background: var(--slate); transition: var(--transition); }
+    .nav a:hover, .nav a.active { color: var(--lightest-slate); }
+    .nav a:hover::before, .nav a.active::before { width: 64px; background: var(--lightest-slate); }
 
     .social-links { display: flex; gap: 20px; align-items: center; }
+    .social-links a { color: var(--slate); transition: var(--transition); }
+    .social-links a:hover { color: var(--green); transform: translateY(-3px); }
+    .social-links svg { width: 22px; height: 22px; fill: currentColor; }
 
-    .social-links a {
-      color: var(--slate);
-      transition: var(--transition);
-    }
+    section { margin-bottom: 120px; scroll-margin-top: 96px; }
+    .section-heading { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lightest-slate); margin-bottom: 40px; font-family: var(--font-mono); position: sticky; top: 0; z-index: 10; padding: 20px 0 12px; background: linear-gradient(var(--navy) 80%, transparent); }
 
-    .social-links a:hover {
-      color: var(--green);
-      transform: translateY(-3px);
-    }
+    .about-text p { margin-bottom: 16px; line-height: 1.7; font-size: 17px; }
+    .about-text a { color: var(--green); font-weight: 500; }
 
-    .social-links svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-    }
-
-    section {
-      margin-bottom: 120px;
-      scroll-margin-top: 96px;
-    }
-
-    .section-heading {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--lightest-slate);
-      margin-bottom: 40px;
-      font-family: var(--font-mono);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      padding: 20px 0 12px;
-      background: linear-gradient(var(--navy) 80%, transparent);
-    }
-
-    .about-text p {
-      margin-bottom: 16px;
-      line-height: 1.7;
-      font-size: 17px;
-    }
-
-    .about-text a {
-      color: var(--green);
-      font-weight: 500;
-    }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 24px;
-      padding: 20px;
-      border-radius: 6px;
-      transition: var(--transition);
-      border: 1px solid transparent;
-      margin-bottom: 8px;
-    }
-
-    .exp-item:hover {
-      background: var(--light-navy);
-      border-color: var(--lightest-navy);
-      box-shadow: 0 4px 32px rgba(2,12,27,0.5);
-    }
-
-    .exp-date {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      color: var(--slate);
-      padding-top: 4px;
-      white-space: nowrap;
-    }
-
-    .exp-title {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--lightest-slate);
-      margin-bottom: 8px;
-      transition: var(--transition);
-    }
-
+    .exp-item { display: grid; grid-template-columns: 130px 1fr; gap: 24px; padding: 20px; border-radius: 6px; transition: var(--transition); border: 1px solid transparent; margin-bottom: 8px; }
+    .exp-item:hover { background: var(--light-navy); border-color: var(--lightest-navy); box-shadow: 0 4px 32px rgba(2,12,27,0.5); }
+    .exp-date { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; color: var(--slate); padding-top: 4px; white-space: nowrap; }
+    .exp-title { font-size: 16px; font-weight: 500; color: var(--lightest-slate); margin-bottom: 8px; transition: var(--transition); }
     .exp-title a { color: inherit; }
+    .exp-item:hover .exp-title { color: var(--green); }
+    .exp-description { font-size: 15px; line-height: 1.6; margin-bottom: 12px; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: var(--green-tint); color: var(--green); font-family: var(--font-mono); font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 999px; letter-spacing: 0.05em; }
 
-    .exp-item:hover .exp-title {
-      color: var(--green);
-    }
-
-    .exp-description {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .exp-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      background: var(--green-tint);
-      color: var(--green);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 999px;
-      letter-spacing: 0.05em;
-    }
-
-    .resume-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 32px;
-      color: var(--lightest-slate);
-      font-size: 14px;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .resume-link:hover {
-      gap: 12px;
-      color: var(--green);
-    }
-
-    .project-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 24px;
-      padding: 20px;
-      border-radius: 6px;
-      transition: var(--transition);
-      border: 1px solid transparent;
-      margin-bottom: 8px;
-    }
-
-    .project-item:hover {
-      background: var(--light-navy);
-      border-color: var(--lightest-navy);
-      box-shadow: 0 4px 32px rgba(2,12,27,0.5);
-    }
-
-    .project-img-placeholder {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: var(--lightest-navy);
-      border-radius: 4px;
-      border: 2px solid var(--lightest-navy);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      transition: var(--transition);
-    }
-
-    .project-item:hover .project-img-placeholder {
-      border-color: var(--green);
-    }
-
-    .project-title {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--lightest-slate);
-      margin-bottom: 8px;
-      transition: var(--transition);
-    }
-
+    .project-item { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding: 20px; border-radius: 6px; transition: var(--transition); border: 1px solid transparent; margin-bottom: 8px; }
+    .project-item:hover { background: var(--light-navy); border-color: var(--lightest-navy); box-shadow: 0 4px 32px rgba(2,12,27,0.5); }
+    .project-img-placeholder { width: 100%; aspect-ratio: 16/9; background: var(--lightest-navy); border-radius: 4px; border: 2px solid var(--lightest-navy); display: flex; align-items: center; justify-content: center; font-size: 24px; transition: var(--transition); }
+    .project-item:hover .project-img-placeholder { border-color: var(--green); }
+    .project-title { font-size: 16px; font-weight: 500; color: var(--lightest-slate); margin-bottom: 8px; transition: var(--transition); }
     .project-title a { color: inherit; }
+    .project-item:hover .project-title { color: var(--green); }
+    .project-description { font-size: 15px; line-height: 1.6; margin-bottom: 12px; }
 
-    .project-item:hover .project-title {
-      color: var(--green);
-    }
-
-    .project-description {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    #comments {
-      margin-bottom: 80px;
-    }
-
-    .flash-messages { margin-bottom: 24px; }
-
-    .flash {
-      padding: 12px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-family: var(--font-mono);
-      margin-bottom: 8px;
-    }
-
-    .flash.success {
-      background: rgba(100,255,218,0.08);
-      border: 1px solid rgba(100,255,218,0.3);
-      color: var(--green);
-    }
-
-    .flash.error {
-      background: rgba(255,100,100,0.08);
-      border: 1px solid rgba(255,100,100,0.3);
-      color: #ff6b6b;
-    }
-
-    .comment-form {
-      background: var(--light-navy);
-      border: 1px solid var(--lightest-navy);
-      border-radius: 10px;
-      padding: 28px;
-      margin-bottom: 40px;
-    }
-
-    .comment-form h3 {
-      font-size: 14px;
-      font-family: var(--font-mono);
-      color: var(--green);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      font-family: var(--font-mono);
-      color: var(--light-slate);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      background: var(--navy);
-      border: 1px solid var(--lightest-navy);
-      border-radius: 6px;
-      color: var(--lightest-slate);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      padding: 12px 16px;
-      transition: var(--transition);
-      outline: none;
-      resize: vertical;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(100,255,218,0.08);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: var(--slate);
-      opacity: 0.6;
-    }
-
-    .form-group textarea {
-      min-height: 100px;
-    }
-
-    .submit-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      border: 1px solid var(--green);
-      color: var(--green);
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      padding: 12px 24px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: var(--transition);
-      margin-top: 8px;
-    }
-
-    .submit-btn:hover {
-      background: var(--green-tint);
-      transform: translateY(-2px);
-    }
-
-    .comments-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .comment-card {
-      background: var(--light-navy);
-      border: 1px solid var(--lightest-navy);
-      border-radius: 8px;
-      padding: 20px 24px;
-      transition: var(--transition);
-      animation: slideIn 0.3s ease;
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .comment-card:hover {
-      border-color: rgba(100,255,218,0.2);
-    }
-
-    .comment-header {
+    /* ── Auth bar ── */
+    .auth-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .comment-author {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--lightest-slate);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .comment-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--lightest-navy);
-      border: 1px solid var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: var(--green);
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-
-    .comment-date {
+      background: var(--light-navy);
+      border: 1px solid var(--lightest-navy);
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-bottom: 32px;
       font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--slate);
-      letter-spacing: 0.05em;
+      font-size: 13px;
     }
+    .auth-bar .user-info { color: var(--light-slate); }
+    .auth-bar .user-info strong { color: var(--green); }
+    .auth-bar a { color: var(--slate); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; transition: var(--transition); }
+    .auth-bar a:hover { color: var(--green); }
 
-    .comment-body {
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--light-slate);
-    }
-
-    .no-comments {
-      text-align: center;
-      padding: 40px 20px;
+    /* Login prompt for guests */
+    .login-prompt {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--light-navy);
       border: 1px dashed var(--lightest-navy);
       border-radius: 8px;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--slate);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 14px;
     }
+    .login-prompt a { font-weight: 500; }
 
-    .comment-count {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--slate);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    #comments { margin-bottom: 80px; }
+    .flash-messages { margin-bottom: 24px; }
+    .flash { padding: 12px 16px; border-radius: 6px; font-size: 14px; font-family: var(--font-mono); margin-bottom: 8px; }
+    .flash.error { background: rgba(255,100,100,0.08); border: 1px solid rgba(255,100,100,0.3); color: #ff6b6b; }
 
-    .comment-count span {
-      background: var(--green-tint);
-      color: var(--green);
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-    }
+    .comment-form { background: var(--light-navy); border: 1px solid var(--lightest-navy); border-radius: 10px; padding: 28px; margin-bottom: 40px; }
+    .comment-form h3 { font-size: 14px; font-family: var(--font-mono); color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-family: var(--font-mono); color: var(--light-slate); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+    .form-group input, .form-group textarea { width: 100%; background: var(--navy); border: 1px solid var(--lightest-navy); border-radius: 6px; color: var(--lightest-slate); font-family: var(--font-sans); font-size: 15px; padding: 12px 16px; transition: var(--transition); outline: none; resize: vertical; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(100,255,218,0.08); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--slate); opacity: 0.6; }
+    .form-group textarea { min-height: 100px; }
+    .submit-btn { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--green); color: var(--green); font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; padding: 12px 24px; border-radius: 4px; cursor: pointer; transition: var(--transition); margin-top: 8px; }
+    .submit-btn:hover { background: var(--green-tint); transform: translateY(-2px); }
 
-    footer {
-      padding-bottom: 48px;
-      font-size: 13px;
-      line-height: 1.8;
-      color: var(--slate);
-    }
+    .comments-list { display: flex; flex-direction: column; gap: 16px; }
+    .comment-card { background: var(--light-navy); border: 1px solid var(--lightest-navy); border-radius: 8px; padding: 20px 24px; transition: var(--transition); animation: slideIn 0.3s ease; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .comment-card:hover { border-color: rgba(100,255,218,0.2); }
+    .comment-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .comment-author { font-size: 14px; font-weight: 600; color: var(--lightest-slate); display: flex; align-items: center; gap: 10px; }
+    .comment-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--lightest-navy); border: 1px solid var(--green); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--green); font-weight: 600; flex-shrink: 0; }
+    .comment-date { font-family: var(--font-mono); font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+    .comment-body { font-size: 15px; line-height: 1.65; color: var(--light-slate); }
+    .no-comments { text-align: center; padding: 40px 20px; border: 1px dashed var(--lightest-navy); border-radius: 8px; font-family: var(--font-mono); font-size: 13px; color: var(--slate); }
+    .comment-count { font-family: var(--font-mono); font-size: 12px; color: var(--slate); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    .comment-count span { background: var(--green-tint); color: var(--green); padding: 2px 10px; border-radius: 999px; font-size: 11px; }
 
-    footer a {
-      color: var(--light-slate);
-      font-weight: 500;
-    }
+    footer { padding-bottom: 48px; font-size: 13px; line-height: 1.8; color: var(--slate); }
+    footer a { color: var(--light-slate); font-weight: 500; }
 
-    .cursor {
-      width: 12px;
-      height: 12px;
-      background: var(--green);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: width 0.2s, height 0.2s;
-      mix-blend-mode: difference;
-    }
+    .cursor { width: 12px; height: 12px; background: var(--green); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s; mix-blend-mode: difference; }
+    .cursor-ring { width: 40px; height: 40px; border: 1px solid rgba(100,255,218,0.4); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.15s ease-out, width 0.3s, height 0.3s; }
+    .radial-glow { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 
-    .cursor-ring {
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(100,255,218,0.4);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
-    }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    .radial-glow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1080px) {
-      .container { padding: 0 80px; }
-    }
-
+    @media (max-width: 1080px) { .container { padding: 0 80px; } }
     @media (max-width: 768px) {
       .container { flex-direction: column; padding: 0 24px; }
       .sidebar { position: relative; width: 100%; max-width: 100%; height: auto; padding: 64px 0 32px; }
@@ -603,10 +176,10 @@
 
         <nav class="nav">
           <ul>
-            <li><a href="#about" class="nav-link active">About</a></li>
+            <li><a href="#about"      class="nav-link active">About</a></li>
             <li><a href="#experience" class="nav-link">Experience</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#comments" class="nav-link">Comments</a></li>
+            <li><a href="#projects"   class="nav-link">Projects</a></li>
+            <li><a href="#comments"   class="nav-link">Comments</a></li>
           </ul>
         </nav>
       </div>
@@ -618,32 +191,35 @@
         <a href="mailto:ongzichuan@gmail.com" aria-label="Email">
           <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
         </a>
+        <a href="https://github.com/ongzichuan" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
       </div>
     </aside>
 
     <main class="main-content" id="content">
+
+      <!-- ABOUT -->
       <section id="about">
         <h2 class="section-heading">About</h2>
         <div class="about-text fade-in">
-          <p>Hi, I'm <strong style="color:var(--lightest-slate)">Ong Zichuan</strong>, a Singapore-based IT professional focused on infrastructure and system support.</p>
-          <p>I work on practical Linux, Docker, monitoring and self-hosted homelab projects that reflect real-world deployment, troubleshooting and service support workflows.</p>
-          <p>This portfolio site itself is a Flask-based project deployed from my homelab with MySQL, Docker, Nginx and Cloudflare Tunnel.</p>
+          <p>Hi, I'm <strong style="color:var(--lightest-slate)">Zichuan</strong>, an IT support and systems focused professional with hands on experience managing Linux servers, Docker environments and monitoring tools through my own homelab. I enjoy troubleshooting issues, maintaining service stability and learning through practical hands on work.</p>
+          <p>Currently, I am building and maintaining a homelab environment where I practise deployment, monitoring and system administration using Linux, Docker, Prometheus and Grafana. I am also strengthening my knowledge in Microsoft Azure as I work towards Cloud Support and System Administrator opportunities.</p>
+          <p>Over time, I have developed experience in system setup, issue resolution and basic network support across Linux and Windows environments. I prefer learning by doing, and my homelab gives me a way to test, break and fix things so I can understand how real world systems work better.</p>
         </div>
       </section>
 
+      <!-- EXPERIENCE -->
       <section id="experience">
         <h2 class="section-heading">Experience</h2>
 
         <div class="exp-item fade-in">
-          <div class="exp-date">Current Focus</div>
+          <div class="exp-date">2025 - Present</div>
           <div>
             <div class="exp-title">Infrastructure / System Support</div>
             <p class="exp-description">Building and managing practical homelab and project-based environments involving Linux services, containerised applications, deployment workflows and troubleshooting.</p>
             <ul class="exp-tags">
-              <li class="tag">Linux</li>
-              <li class="tag">Docker</li>
-              <li class="tag">Monitoring</li>
-              <li class="tag">Troubleshooting</li>
+              <li class="tag">Linux</li><li class="tag">Docker</li><li class="tag">Monitoring</li><li class="tag">Troubleshooting</li>
             </ul>
           </div>
         </div>
@@ -654,15 +230,13 @@
             <div class="exp-title">Hands-on Technical Build Work</div>
             <p class="exp-description">Developing practical portfolio projects in Flask, infrastructure support, Windows Server and networking to strengthen readiness for IT support, system administration and cloud support roles.</p>
             <ul class="exp-tags">
-              <li class="tag">Flask</li>
-              <li class="tag">Windows Server</li>
-              <li class="tag">Networking</li>
-              <li class="tag">MySQL</li>
+              <li class="tag">Flask</li><li class="tag">Windows Server</li><li class="tag">Networking</li><li class="tag">MySQL</li>
             </ul>
           </div>
         </div>
       </section>
 
+      <!-- PROJECTS -->
       <section id="projects">
         <h2 class="section-heading">Projects</h2>
 
@@ -671,12 +245,7 @@
           <div>
             <div class="project-title">Containerised Portfolio Platform</div>
             <p class="project-description">Built and deployed a one-page Flask portfolio platform with a MySQL-backed comment section using Docker Compose, Nginx and Cloudflare Tunnel on a self-hosted homelab server.</p>
-            <ul class="exp-tags">
-              <li class="tag">Flask</li>
-              <li class="tag">MySQL</li>
-              <li class="tag">Docker</li>
-              <li class="tag">Nginx</li>
-            </ul>
+            <ul class="exp-tags"><li class="tag">Flask</li><li class="tag">MySQL</li><li class="tag">Docker</li><li class="tag">Nginx</li></ul>
           </div>
         </div>
 
@@ -685,11 +254,7 @@
           <div>
             <div class="project-title">Homelab Monitoring Stack</div>
             <p class="project-description">Set up monitoring and observability workflows for containers and services in a practical homelab environment using common infrastructure tooling.</p>
-            <ul class="exp-tags">
-              <li class="tag">Prometheus</li>
-              <li class="tag">Grafana</li>
-              <li class="tag">Docker</li>
-            </ul>
+            <ul class="exp-tags"><li class="tag">Prometheus</li><li class="tag">Grafana</li><li class="tag">Docker</li></ul>
           </div>
         </div>
 
@@ -698,69 +263,74 @@
           <div>
             <div class="project-title">Windows Server 2022 AD Project</div>
             <p class="project-description">Designed and configured an Active Directory environment with users, groups, organisational units and structured administration for practical learning use.</p>
-            <ul class="exp-tags">
-              <li class="tag">Windows Server</li>
-              <li class="tag">AD DS</li>
-              <li class="tag">Group Policy</li>
-            </ul>
+            <ul class="exp-tags"><li class="tag">Windows Server</li><li class="tag">AD DS</li><li class="tag">Group Policy</li></ul>
           </div>
         </div>
       </section>
 
+      <!-- COMMENTS -->
       <section id="comments">
         <h2 class="section-heading">Comments</h2>
 
         <div class="flash-messages">
           {% if error %}
-            <div class="flash error">{{ error }}</div>
+          <div class="flash error">{{ error }}</div>
           {% endif %}
         </div>
 
+        <!-- Auth bar: shows who is logged in, or login prompt -->
+        {% if current_user.is_authenticated %}
+        <div class="auth-bar">
+          <span class="user-info">Signed in as <strong>{{ current_user.username }}</strong></span>
+          <a href="{{ url_for('logout') }}">Log out →</a>
+        </div>
+
+        <!-- Comment form — only for logged-in users (Task B) -->
         <form method="POST" action="{{ url_for('home') }}" class="comment-form fade-in">
           <h3>// Leave a Comment</h3>
-
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" />
+            <label for="name">Display Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name (defaults to your username)" />
           </div>
-
           <div class="form-group">
             <label for="comment">Message</label>
-            <textarea id="comment" name="comment" placeholder="Say something nice..." required></textarea>
+            <textarea id="comment" name="comment" placeholder="Say something..." required></textarea>
           </div>
-
           <button type="submit" class="submit-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
             Post Comment
           </button>
         </form>
 
+        {% else %}
+        <!-- Guest prompt -->
+        <div class="login-prompt fade-in">
+          <span>🔒</span>
+          <span>You need to <a href="{{ url_for('login') }}">log in</a> to leave a comment.</span>
+        </div>
+        {% endif %}
+
+        <!-- Comment list — visible to everyone -->
         <div class="comment-count">
-          Comments <span id="commentCount">{{ comments|length }}</span>
+          Comments <span>{{ comments | length }}</span>
         </div>
 
         <div class="comments-list" id="commentsList">
           {% if comments %}
             {% for comment in comments %}
-              <div class="comment-card fade-in">
-                <div class="comment-header">
-                  <div class="comment-author">
-                    <div class="comment-avatar">
-                      {{ comment.name[0]|upper if comment.name else 'A' }}
-                    </div>
-                    {{ comment.name }}
-                  </div>
-                  <div class="comment-date">
-                    {{ comment.created_at.strftime('%d %b %Y') if comment.created_at else '' }}
-                  </div>
+            <div class="comment-card fade-in">
+              <div class="comment-header">
+                <div class="comment-author">
+                  <div class="comment-avatar">{{ comment.name[0]|upper if comment.name else 'A' }}</div>
+                  {{ comment.name }}
                 </div>
-                <p class="comment-body">{{ comment.content }}</p>
+                <div class="comment-date">{{ comment.created_at.strftime('%d %b %Y') if comment.created_at else '' }}</div>
               </div>
+              <p class="comment-body">{{ comment.content }}</p>
+            </div>
             {% endfor %}
           {% else %}
-            <div class="no-comments">
-              No comments yet — be the first to say something! 👋
-            </div>
+            <div class="no-comments">No comments yet — be the first to say something! 👋</div>
           {% endif %}
         </div>
       </section>
@@ -768,6 +338,7 @@
       <footer>
         <p>Built with <a href="https://flask.palletsprojects.com/" target="_blank">Flask</a> and plain HTML/CSS. Hosted on my homelab at <a href="https://portfolio.tototio.com" target="_blank">portfolio.tototio.com</a>.</p>
       </footer>
+
     </main>
   </div>
 
@@ -775,57 +346,24 @@
     const cursor = document.getElementById('cursor');
     const cursorRing = document.getElementById('cursorRing');
     const radialGlow = document.getElementById('radialGlow');
-
     document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-
-      setTimeout(() => {
-        cursorRing.style.left = e.clientX + 'px';
-        cursorRing.style.top = e.clientY + 'px';
-      }, 60);
-
-      radialGlow.style.background =
-        `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(29,78,216,0.12), transparent 80%)`;
+      cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+      setTimeout(() => { cursorRing.style.left = e.clientX + 'px'; cursorRing.style.top = e.clientY + 'px'; }, 60);
+      radialGlow.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(29,78,216,0.12), transparent 80%)`;
     });
-
     document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.width = cursor.style.height = '20px';
-        cursorRing.style.width = cursorRing.style.height = '60px';
-      });
-
-      el.addEventListener('mouseleave', () => {
-        cursor.style.width = cursor.style.height = '12px';
-        cursorRing.style.width = cursorRing.style.height = '40px';
-      });
+      el.addEventListener('mouseenter', () => { cursor.style.width = cursor.style.height = '20px'; cursorRing.style.width = cursorRing.style.height = '60px'; });
+      el.addEventListener('mouseleave', () => { cursor.style.width = cursor.style.height = '12px'; cursorRing.style.width = cursorRing.style.height = '40px'; });
     });
-
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-
-    const navObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-          });
-        }
-      });
-    }, { rootMargin: '-30% 0px -60% 0px' });
-
-    sections.forEach(section => navObserver.observe(section));
-
-    const fadeObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          fadeObs.unobserve(entry.target);
-        }
-      });
+    sections.forEach(s => new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id)); });
+    }, { rootMargin: '-30% 0px -60% 0px' }).observe(s));
+    const fo = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fo.unobserve(e.target); }});
     }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => fadeObs.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => fo.observe(el));
   </script>
 </body>
 </html>
