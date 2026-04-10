@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ong Zichuan — Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 
   <style>
@@ -32,7 +35,7 @@
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--lightest-navy); border-radius: 10px; }
 
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 150px; display: flex; gap: 4rem; min-height: 100vh; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 96px; display: flex; gap: 6rem; min-height: 100vh; }
     .sidebar { width: 50%; max-width: 480px; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 96px 0; flex-shrink: 0; }
     .main-content { width: 50%; padding: 96px 0; }
 
@@ -148,7 +151,7 @@
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    @media (max-width: 1080px) { .container { padding: 0 80px; } }
+    @media (max-width: 1080px) { .container { padding: 0 48px; } }
     @media (max-width: 768px) {
       .container { flex-direction: column; padding: 0 24px; }
       .sidebar { position: relative; width: 100%; max-width: 100%; height: auto; padding: 64px 0 32px; }
@@ -216,56 +219,155 @@
         <div class="exp-item fade-in">
           <div class="exp-date">2025 - Present</div>
           <div>
-            <div class="exp-title">Infrastructure / System Support</div>
-            <p class="exp-description">Building and managing practical homelab and project-based environments involving Linux services, containerised applications, deployment workflows and troubleshooting.</p>
-            <ul class="exp-tags">
-              <li class="tag">Linux</li><li class="tag">Docker</li><li class="tag">Monitoring</li><li class="tag">Troubleshooting</li>
+            <div class="exp-title">System Administrator · Homelab</div>
+       <p class="exp-description">
+      Building and managing a practical homelab environment focused on Linux services, Docker workloads, monitoring, troubleshooting and day to day system operations. The setup also acts as a live web server hosting my portfolio page, giving me hands on exposure to deployment, service availability, connectivity and real usage in a self hosted environment.
+    </p>
+    <ul class="exp-tags">
+      <li class="tag">Linux</li>
+      <li class="tag">Docker</li>
+      <li class="tag">Prometheus</li>
+      <li class="tag">Grafana</li>
+      <li class="tag">Alertmanager</li>
+      <li class="tag">Web Server</li>
+      <li class="tag">Monitoring</li>
+      <li class="tag">Troubleshooting</li>
             </ul>
           </div>
         </div>
-
-        <div class="exp-item fade-in">
-          <div class="exp-date">Project Based</div>
-          <div>
-            <div class="exp-title">Hands-on Technical Build Work</div>
-            <p class="exp-description">Developing practical portfolio projects in Flask, infrastructure support, Windows Server and networking to strengthen readiness for IT support, system administration and cloud support roles.</p>
-            <ul class="exp-tags">
-              <li class="tag">Flask</li><li class="tag">Windows Server</li><li class="tag">Networking</li><li class="tag">MySQL</li>
-            </ul>
-          </div>
-        </div>
+<div class="exp-item fade-in">
+  <div class="exp-date">Nov 2008 - 2009</div>
+  <div>
+    <div class="exp-title">Deployment Technician · Micro2000</div>
+    <p class="exp-description">
+      Supported large scale desktop deployment and migration work for an islandwide project, handling system setup, data transfer and testing across multiple endpoints. Worked closely with team members on site to ensure devices were properly configured, connected to the network and ready for use, while resolving issues quickly to keep the rollout smooth.
+    </p>
+    <ul class="exp-tags">
+      <li class="tag">Desktop Deployment</li>
+      <li class="tag">Data Migration</li>
+      <li class="tag">Windows</li>
+      <li class="tag">System Setup</li>
+      <li class="tag">Network Connectivity</li>
+      <li class="tag">Troubleshooting</li>
+    </ul>
+  </div>
+</div>
+<div class="exp-item fade-in">
+  <div class="exp-date">2006 - 2007</div>
+  <div>
+    <div class="exp-title">IT Support Technician · Comat Jesi</div>
+    <p class="exp-description">
+      Provided on site technical support for users, handling installation and configuration of desktops, printers and network devices. Assisted with software setup, basic troubleshooting and connectivity issues, ensuring systems were working properly for daily operations while maintaining clear documentation of work done.
+    </p>
+    <ul class="exp-tags">
+      <li class="tag">Desktop Support</li>
+      <li class="tag">Hardware Installation</li>
+      <li class="tag">Printer Setup</li>
+      <li class="tag">LAN</li>
+      <li class="tag">User Support</li>
+      <li class="tag">Troubleshooting</li>
+    </ul>
+  </div>
+</div>
       </section>
 
       <!-- PROJECTS -->
       <section id="projects">
         <h2 class="section-heading">Projects</h2>
 
-        <div class="project-item fade-in">
-          <div><div class="project-img-placeholder">🚀</div></div>
-          <div>
-            <div class="project-title">Containerised Portfolio Platform</div>
-            <p class="project-description">Built and deployed a one-page Flask portfolio platform with a MySQL-backed comment section using Docker Compose, Nginx and Cloudflare Tunnel on a self-hosted homelab server.</p>
-            <ul class="exp-tags"><li class="tag">Flask</li><li class="tag">MySQL</li><li class="tag">Docker</li><li class="tag">Nginx</li></ul>
-          </div>
-        </div>
+<div class="project-item fade-in">
+  <div><div class="project-img-placeholder">🚀</div></div>
+  <div>
+    <div class="project-title">Containerised Portfolio Platform</div>
+    <p class="project-description">
+      Built and deployed a Flask based portfolio site on my self hosted homelab server, with MySQL integration for comments, user login support and backend database handling. The project was containerised with Docker Compose and set up as a live web service, giving me hands on practice in deployment, application updates, troubleshooting and managing a working portfolio platform in a Linux environment.
+    </p>
+    <ul class="exp-tags">
+      <li class="tag">Flask</li>
+      <li class="tag">MySQL</li>
+      <li class="tag">Docker Compose</li>
+      <li class="tag">Linux</li>
+      <li class="tag">Web Hosting</li>
+      <li class="tag">User Authentication</li>
+      <li class="tag">Troubleshooting</li>
+    </ul>
+  </div>
+</div>
 
-        <div class="project-item fade-in">
-          <div><div class="project-img-placeholder">📊</div></div>
-          <div>
-            <div class="project-title">Homelab Monitoring Stack</div>
-            <p class="project-description">Set up monitoring and observability workflows for containers and services in a practical homelab environment using common infrastructure tooling.</p>
-            <ul class="exp-tags"><li class="tag">Prometheus</li><li class="tag">Grafana</li><li class="tag">Docker</li></ul>
-          </div>
-        </div>
+       <div class="project-item fade-in">
+  <div><div class="project-img-placeholder">📊</div></div>
+  <div>
+    <div class="project-title">Homelab Monitoring Stack</div>
+    <p class="project-description">
+      Set up a monitoring stack within my homelab to track container and system performance across services running in a live environment. This included configuring monitoring, dashboards and alerting components to improve visibility, resource tracking and service awareness, while helping me build practical experience in observability and day to day infrastructure monitoring.
+    </p>
+    <ul class="exp-tags">
+      <li class="tag">Prometheus</li>
+      <li class="tag">Grafana</li>
+      <li class="tag">Alertmanager</li>
+      <li class="tag">Docker</li>
+      <li class="tag">Linux</li>
+      <li class="tag">Monitoring</li>
+    </ul>
+  </div>
+</div>
 
-        <div class="project-item fade-in">
-          <div><div class="project-img-placeholder">🛠️</div></div>
-          <div>
-            <div class="project-title">Windows Server 2022 AD Project</div>
-            <p class="project-description">Designed and configured an Active Directory environment with users, groups, organisational units and structured administration for practical learning use.</p>
-            <ul class="exp-tags"><li class="tag">Windows Server</li><li class="tag">AD DS</li><li class="tag">Group Policy</li></ul>
-          </div>
-        </div>
+<div class="project-item fade-in">
+  <div><div class="project-img-placeholder">🌐</div></div>
+  <div>
+    <div class="project-title">Enterprise Network Design and Implementation</div>
+    <p class="project-description">
+      Designed and implemented a simulated enterprise network for a Singapore office setup using Cisco Packet Tracer, focusing on IP addressing, VLAN segmentation and inter VLAN routing. Configured separate HR LAN and departmental VLANs, with router on a stick setup to enable communication across networks. Faced initial issues with interface mapping and cabling, and used CDP checks and interface verification to troubleshoot and resolve connectivity problems, achieving full end to end communication across all devices.
+    </p>
+    <ul class="exp-tags">
+      <li class="tag">Networking</li>
+      <li class="tag">IP Addressing</li>
+      <li class="tag">Subnetting</li>
+      <li class="tag">VLAN</li>
+      <li class="tag">Inter VLAN Routing</li>
+      <li class="tag">Cisco Packet Tracer</li>
+      <li class="tag">Troubleshooting</li>
+    </ul>
+  </div>
+</div>
+
+<div class="project-item fade-in">
+  <div><div class="project-img-placeholder">🛠️</div></div>
+  <div>
+    <div class="project-title">Windows Server 2022 Active Directory Project</div>
+    <p class="project-description">
+      Contributed to a 4 person group project involving the setup of a Windows Server 2022 environment for enterprise administration practice. My role focused on the Active Directory portion, where I worked on organisational units, users, groups and administrative structure to support controlled access and directory management in a structured domain environment.
+    </p>
+    <ul class="exp-tags">
+      <li class="tag">Windows Server 2022</li>
+      <li class="tag">Active Directory</li>
+      <li class="tag">OU Design</li>
+      <li class="tag">User Management</li>
+      <li class="tag">Group Management</li>
+      <li class="tag">Administration</li>
+    </ul>
+  </div>
+</div>
+
+<div class="project-item fade-in">
+  <div><div class="project-img-placeholder">🔐</div></div>
+  <div>
+    <div class="project-title">Cybersecurity Risk and Controls Case Study</div>
+    <p class="project-description">
+      Worked on a case study based on the SingHealth cyberattack, focusing on security planning and budget allocation for organisational controls. My part covered recommending how a security budget should be prioritised across preventive, detective and corrective measures, with justification tied to access control, patching, monitoring, incident response and the protection of sensitive data in a large scale environment.
+    </p>
+    <ul class="exp-tags">
+      <li class="tag">IT Security</li>
+      <li class="tag">Risk Assessment</li>
+      <li class="tag">Security Controls</li>
+      <li class="tag">Budget Planning</li>
+      <li class="tag">Incident Response</li>
+      <li class="tag">Cybersecurity Analysis</li>
+    </ul>
+  </div>
+</div>
+
+
       </section>
 
       <!-- COMMENTS -->
