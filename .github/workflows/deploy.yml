@@ -1,10 +1,31 @@
-name: Test CI
+name: Auto Deploy Portfolio
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.html"
+      - "**.css"
+      - "**.js"
+      - "app.py"
+      - "Dockerfile"
+      - "docker-compose.yml"
+      - "compose.yml"
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: [self-hosted, homelab]
+
     steps:
-      - name: Test
-        run: echo "CI working"
+      - name: Pull latest code
+        run: |
+          cd ~/portfolio-site
+          git pull origin main
+
+      - name: Rebuild and restart Docker Compose
+        run: |
+          cd ~/portfolio-site
+          docker compose down
+          docker compose build --no-cache
+          docker compose up -d
