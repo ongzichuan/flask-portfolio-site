@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-k8s-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-k8s-app
+  template:
+    metadata:
+      labels:
+        app: flask-k8s-app
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
+      containers:
+        - name: flask-k8s-app
+          image: ongzichuan/flask-k8s-project:v1
+          ports:
+            - containerPort: 8000
