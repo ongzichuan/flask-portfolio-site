@@ -9,3 +9,4 @@ node_modules/
 *.log
 mysql_data/
 actions-runner/
+myagent/
