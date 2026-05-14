@@ -195,8 +195,7 @@
     footer { padding-bottom: 48px; font-size: 13px; line-height: 1.8; color: var(--slate); }
     footer a { color: var(--light-slate); font-weight: 500; }
 
-    .cursor { width: 12px; height: 12px; background: var(--green); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s; mix-blend-mode: difference; }
-    .cursor-ring { width: 40px; height: 40px; border: 1px solid rgba(100,255,218,0.4); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.15s ease-out, width 0.3s, height 0.3s; }
+   
     .radial-glow { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
@@ -215,8 +214,7 @@
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+ 
   <div class="radial-glow" id="radialGlow"></div>
 
   <div class="container">
@@ -496,18 +494,14 @@
   </div>
 
   <script>
-    const cursor = document.getElementById('cursor');
-    const cursorRing = document.getElementById('cursorRing');
+
     const radialGlow = document.getElementById('radialGlow');
     document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
-      setTimeout(() => { cursorRing.style.left = e.clientX + 'px'; cursorRing.style.top = e.clientY + 'px'; }, 60);
+
+   
       radialGlow.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(29,78,216,0.12), transparent 80%)`;
     });
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => { cursor.style.width = cursor.style.height = '20px'; cursorRing.style.width = cursorRing.style.height = '60px'; });
-      el.addEventListener('mouseleave', () => { cursor.style.width = cursor.style.height = '12px'; cursorRing.style.width = cursorRing.style.height = '40px'; });
-    });
+ 
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 const navObserver = new IntersectionObserver(entries => {
