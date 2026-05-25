@@ -8,6 +8,7 @@ pool:
 
 variables:
   dockerHubRepo: 'ongzichuan/flask-k8s-project'
+  imageTag: '$(Build.BuildId)'
 
 stages:
   - stage: Build
@@ -31,7 +32,8 @@ stages:
               dockerfile: 'app/Dockerfile'
               buildContext: '.'
               tags: |
-                latest
+                $(imageTag)
+             
 
   - stage: Deploy
     displayName: Deploy to Kubernetes
@@ -42,7 +44,9 @@ stages:
           - checkout: self
 
           - script: |
+              sed -i "s|ongzichuan/flask-k8s-project:.*|ongzichuan/flask-k8s-project:$(imageTag)|g" k8s/deployment.yaml
               kubectl apply -f k8s/deployment.yaml
               kubectl apply -f k8s/service.yaml
+              kubectl rollout restart deployment/flask-k8s-app
               kubectl rollout status deployment/flask-k8s-app
             displayName: Deploy to Kubernetes
