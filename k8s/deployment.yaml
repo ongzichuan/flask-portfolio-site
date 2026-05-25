@@ -16,6 +16,7 @@ spec:
         - name: dockerhub-secret
       containers:
         - name: flask-k8s-app
-          image: ongzichuan/flask-k8s-project:v1
+          image: ongzichuan/flask-k8s-project:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
